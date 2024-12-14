@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -31.8, "left": 50.8, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -38.4, "left": 417.64, "attrs": {} },
+    {
+      "type": "chip-soil_sensor",
+      "id": "chip1",
+      "top": -55.5,
+      "left": 140.32,
+      "rotate": 270,
+      "attrs": {}
+    },
+    { "type": "board-ds18b20", "id": "temp1", "top": -29.93, "left": 71.28, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -96.3,
+      "left": 52.1,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": -165.2, "left": -124.8, "attrs": {} },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay1",
+      "top": -73.8,
+      "left": 282,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -97.2,
+      "left": -166.2,
+      "rotate": 90,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -58.8,
+      "left": -118.2,
+      "rotate": 90,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-hx711",
+      "id": "cell1",
+      "top": -120.8,
+      "left": 188,
+      "rotate": 270,
+      "attrs": { "type": "5kg" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "bb1:29t.e", "bb1:bn.24", "black", [ "v0" ] ],
+    [ "bb1:28t.e", "bb1:bp.23", "red", [ "v0" ] ],
+    [ "bb1:20t.e", "bb1:bn.16", "black", [ "v0" ] ],
+    [ "bb1:23t.e", "bb1:bp.19", "red", [ "v0" ] ],
+    [ "bb1:12t.e", "bb1:bn.10", "black", [ "v0" ] ],
+    [ "bb1:13t.e", "bb1:bp.11", "red", [ "v0" ] ],
+    [ "bb1:8t.e", "bb1:bn.6", "black", [ "v0" ] ],
+    [ "bb1:9t.e", "bb1:bp.7", "red", [ "v0" ] ],
+    [ "bb1:3t.e", "bb1:bp.2", "red", [ "v0" ] ],
+    [ "bb1:1t.e", "bb1:bn.2", "black", [ "v0" ] ],
+    [ "esp:5V", "bb1:bp.25", "red", [ "h-38.25", "v-8.7" ] ],
+    [ "esp:GND.1", "bb1:bn.25", "black", [ "h-47.85", "v48", "h-20.8" ] ],
+    [ "temp1:GND", "bb1:1t.a", "", [ "$bb" ] ],
+    [ "temp1:DQ", "bb1:2t.a", "", [ "$bb" ] ],
+    [ "temp1:VCC", "bb1:3t.a", "", [ "$bb" ] ],
+    [ "ldr1:VCC", "bb1:9t.a", "", [ "$bb" ] ],
+    [ "ldr1:GND", "bb1:8t.a", "", [ "$bb" ] ],
+    [ "ldr1:DO", "bb1:7t.a", "", [ "$bb" ] ],
+    [ "ldr1:AO", "bb1:6t.a", "", [ "$bb" ] ],
+    [ "chip1:GND", "bb1:12t.a", "", [ "$bb" ] ],
+    [ "chip1:VCC", "bb1:13t.a", "", [ "$bb" ] ],
+    [ "chip1:A0", "bb1:14t.a", "", [ "$bb" ] ],
+    [ "relay1:VCC", "bb1:28t.a", "", [ "$bb" ] ],
+    [ "relay1:GND", "bb1:29t.a", "", [ "$bb" ] ],
+    [ "relay1:IN", "bb1:30t.a", "", [ "$bb" ] ],
+    [ "cell1:VCC", "bb1:23t.a", "", [ "$bb" ] ],
+    [ "cell1:DT", "bb1:21t.a", "", [ "$bb" ] ],
+    [ "cell1:SCK", "bb1:22t.a", "", [ "$bb" ] ],
+    [ "cell1:GND", "bb1:20t.a", "", [ "$bb" ] ],
+    [ "bb1:14t.e", "esp:33", "green", [ "v9.6", "h172.8", "v-9.6" ] ],
+    [ "esp:25", "bb1:6t.e", "green", [ "h-28.65", "v9.6", "h-268.8" ] ],
+    [ "esp:12", "bb1:2t.e", "green", [ "h-249.45", "v0", "h-86.4" ] ]
+  ],
+  "dependencies": {}
+}
